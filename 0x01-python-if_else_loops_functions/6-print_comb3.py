@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-digit1 = 0
-digit2 = 1
-while digit1 <= 8:
-    while digit2 <= 9:
-        if digit1 != digit2:
-            print("{:d}".format(digit1), end='')
-            if digit1 != 8:
-                print("{:d}, ".format(digit2), end='')
+def print_uniq_combos():
+    for i in range(10):
+        for j in range(i + 1, 10):
+            if i == 8 and j == 9:
+                print('{:d}{:d}'.format(i, j))
             else:
-                print("{:d}".format(digit2))
-        digit2 += 1
-    digit2 = digit1 + 1
-    digit1 = digit1 + 1
+                print('{:d}{:d}'.format(i, j), end=', ')
+
+
+if __name__ == '__main__':
+    print_uniq_combos()
