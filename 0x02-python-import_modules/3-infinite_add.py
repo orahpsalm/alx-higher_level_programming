@@ -2,6 +2,6 @@
 if __name__ == "__main__":
     from sys import argv
     sum_args = 0
-    for i in range(1, len(argv)):
+    for i, arg in enumerate(argv[1:]):
         sum_args += int(argv[i])
-    print(sum_args)
+    print("{:d}".format(sum_args))
