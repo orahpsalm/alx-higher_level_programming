@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def max_intege(my_list=[]):
+def max_integer(my_list=[]):
     if my_list == []:
         return None
     max_int = 0
