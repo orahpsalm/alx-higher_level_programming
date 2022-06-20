@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def safe_division(a, b):
     quotient = 0
     try:
@@ -10,6 +11,7 @@ def safe_division(a, b):
         print("wrong type")
     finally:
         return quotient
+
 
 def list_division(my_list_1, my_list_2, list_length):
     result_li = []
