@@ -1,10 +1,17 @@
 #!/usr/bin/python3
-"""Define an object name Square."""
+"""Define an object name Square.
+"""
+
 
 
 class Square:
+<<<<<<< HEAD
     """ Object Square [a class]"""
 
+=======
+    """ Object Square [class]
+    """
+>>>>>>> 55994b7e531d2d3e1545b9c3a515301c3f8ecdc3
     def __init__(self, size=0):
         """ Initialize method.
         Args:
