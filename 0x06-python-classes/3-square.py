@@ -1,26 +1,26 @@
 #!/usr/bin/python3
 
+"""Define an object name Square.
+"""
+
 
 class Square:
-    """Square class."""
-
+    """ Object Square [class]
+    """
     def __init__(self, size=0):
-        """__init__ method that sets the size of square.
+        """ Initialize method.
         Args:
-            size (int): size of Square
-        Raises:
-            TypeError: If `size` is not an integer.
-            ValueError: If `size` is less than 0.
+            self (class): This class
+            size (int): Size of the square
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = int(size)
 
     def area(self):
-        """Gets the area of the Square.
-        Returns:
-            Area of squre
+        """Returns the current square area
         """
-        return self.__size * self.__size
+        return self.__size ** 2
