@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Define an object name Square.
 """
 
@@ -18,8 +19,7 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = int(size)
-    
-    
+
     def area(self):
         """Returns the current square area"""
         return self.__size() ** 2
