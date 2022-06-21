@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Define an object name Square."""
+"""Define an object name Square.
+"""
+
 
 class Square:
-    """ Object Square [a class]"""
-    
+    """ Object Square [class]
+    """
     def __init__(self, size=0):
         """ Initialize method.
         Args:
