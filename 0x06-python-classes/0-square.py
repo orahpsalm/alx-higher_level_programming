@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
+"""Class documentation"""
+
 
 class Square():
-    """An empty class, Square."""
+    """Class documentation"""
     pass
