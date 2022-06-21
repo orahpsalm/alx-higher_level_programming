@@ -4,5 +4,5 @@
 
 
 class Square():
-    """Class documentation"""
+    """Docs for class, Square"""
     pass
