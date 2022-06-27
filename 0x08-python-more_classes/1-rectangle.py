@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Class Documentation"""
+
 
 class Rectangle:
     """Rectangle class."""
