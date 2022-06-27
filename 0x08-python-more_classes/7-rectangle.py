@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Change representation"""
+
 
 class Rectangle:
     """Rectangle class.
