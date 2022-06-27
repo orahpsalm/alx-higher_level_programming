@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""A square is a rectangle"""
+
 
 class Rectangle:
     """Rectangle class.
