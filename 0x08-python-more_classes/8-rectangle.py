@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Compare rectangles"""
+
 
 class Rectangle:
     """Rectangle class.
