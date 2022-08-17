@@ -1,18 +1,102 @@
 # SQL - More queries
-* 0-privileges.sql: script that lists all privileges of the MySQL users user_0d_1 and user_0d_2
-* 1-create_user.sql: script that creates the MySQL server user user_0d_1
-* 2-create_read_user.sql: script that creates the database hbtn_0d_2 and the user user_0d_2
-* 3-force_name.sql: script that creates the table force_name on your MySQL server
-* 4-never_empty.sql: script that creates the table id_not_null on your MySQL server
-* 5-unique_id.sql: script that creates the table unique_id on your MySQL server
-* 6-states.sql: script that creates the database hbtn_0d_usa and the table states (in the database hbtn_0d_usa)
-* 7-cities.sql: script that creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa)
-* 8-cities_of_california_subquery.sql: script that lists all the cities of California that can be found in the database hbtn_0d_usa
-* 9-cities_by_state_join.sql: script that lists all cities contained in the database hbtn_0d_usa
-* 10-genre_id_by_show.sql: script that lists all shows contained in hbtn_0d_tvshows that have at least one genre linked
-* 11-genre_id_all_shows.sql: script that lists all shows contained in the database hbtn_0d_tvshows
-* 12-no_genre.sql: script that lists all shows contained in hbtn_0d_tvshows without a genre linked
-* 13-count_shows_by_genre.sql: script that lists all genres from hbtn_0d_tvshows and displays the number of shows linked to each
-* 14-my_genres.sql: script that uses the hbtn_0d_tvshows database to lists all genres of the show Dexter
-* 15-comedy_only.sql: script that lists all Comedy shows in the database hbtn_0d_tvshows
-* 16-shows_by_genre.sql: script that lists all shows, and all genres linked to that show, from the database hbtn_0d_tvshows.
+
+I continue to practice SQL queries in this project, working with
+permissoins, joins, and constraints.
+
+## Usage :dolphin:
+
+* Scripts [3-force_name.sql](./3-force_name.sql) forward take the database to query from
+as a MySQL command line argument.
+
+```
+$ cat 3-force_name.sql | mysql -hlocalhost -uroot -p hbtn_0d_2
+```
+
+## Tasks :page_with_curl:
+
+* **0. My privileges!**
+  * [0-privileges.sql](./0-privileges.sql): MySQL script that lists all privileges of the users
+  `user_0d_1` and `user_0d_2`.
+
+* **1. Root user**
+  * [1-create_user.sql](./1-create_user.sql): MySQL script that creates the user `user_0d_1` with
+  all privileges and password `user_0d_1_pwd`.
+
+* **2. Read user**
+  * [2-create_read_user.sql](./2-create_read_user.sql): MySQL script that creates the database
+  `hbtn_0d_2` and user `user_0d_2` with password `user_0d_2_pwd`.
+  * `user_0d_2` only has SELECT privilege on the database `hbtn_0d_2`.
+
+* **3. Always a name**
+  * [3-force_name.sql](./3-force_name.sql): MySQL script that creates the table `force_name`.
+  * Description:
+    * `id`: INT
+    * `name`: VARCHAR(256) (cannot be null)
+
+* **4. ID can't be null**
+  * [4-never_empty.sql](./4-never_empty.sql): MySQL script that creates the table `id_not_null`.
+  * Description:
+    * `id`: INT (default value = 1)
+    * `name`: VARCHAR(256)
+
+* **5. Unique ID**
+  * [5-unique_id.sql](./5-unique_id.sql): MySQL script that creates the table `unique_id`.
+  * Description:
+    * `id`: INT (default value = 1, must be unique)
+    * `name`: VARCHAR(256)
+
+* **6. States table**
+  * [6-states.sql](./6-states.sql): MySQL script that creates the database `hbtn_0d_usa`
+  with a table `states`.
+  * `states` description:
+    * `id`: INT (unique, auto-generated, cannot be null and is a primary key)
+    * `name`: VARCHAR(256) (cannot be null)
+
+* **7. Cities table**
+  * [7-cities.sql](./7-cities.sql): MySQL script that creates the database `hbtn_0d_usa`
+  with a table `cities`.
+  * `cities` description:
+    * `id`: INT (unique, auto-generated, cannot be null and is a primary key)
+    * `state_id`: INT (cannot be null, foreign key that references to id of the
+    `states` table)
+    * `name`: VARCHAR(256) (cannot be null)
+
+* **8. Cities of California**
+  * [8-cities_of_california_subquery.sql](./8-cities_of_california_subquery.sql):
+  MySQL script that lists all the cities of California that can be found in the
+  database `hbtn_0d_usa`, ordered by ascending city id.
+
+* **9. Cities by States**
+  * [9-cities_by_state_join.sql](./9-cities_by_state_join.sql): MySQL script that lists
+  all cities contained in the database `hbtn_0d_usa`, ordered by ascending city id.
+
+* **10. Genre ID by show**
+  * [10-genre_id_by_show.sql](./10-genre_id_by_show.sql): MySQL script that lists all
+  shows contained in `hbtn_0d_tvshows` that have at least one genre linked, in order of ascending
+`tv_shows.title` and `tv_show_genres.genre_id`.
+
+* **11. Genre ID for all shows**
+  * [11-genre_id_all_shows.sql](./11-genre_id_all_shows.sql): MySQL script that lists all shows contained
+  in the database `hbtn_0d_tvshows`, in order of ascending `tv_shows.title` and `tv_show_genres.genre_id`.
+  * If a show does not have a genre, displays `NULL`.
+
+* **12. No genre**
+  * [12-no_genre.sql](./12-no_genre.sql): MySQL script that lists all shows contained in
+  `hbtn_0d_tvshows` without a genre linked, in order of ascending `tv_shows.title` and `tv_show_genres.genre_id`.
+
+* **13. Number of shows by genre**
+  * [13-count_shows_by_genre.sql](./13-count_shows_by_genre.sql): MySQL script that lists all genres from
+  `hbtn_0d_tvshows` and displays the number of shows linked to each, in order of descending number of shows linked.
+  * Does not display a genre if it has no linked shows.
+
+* **14. My genres**
+  * [14-my_genres.sql](./14-my_genres.sql): MySQL script that uses the `hbtn_0d_tvshows` database
+  to list all genres of the show Dexter, in order of ascending genre name.
+
+* **15. Only Comedy**
+  * [15-comedy_only.sql](./15-comedy_only.sql): MySQL script that lists all comedy shows in the
+  database `hbtn_0d_tvshows`, in order of ascending show title.
+
+* **16. List shows and genres**
+  * [16-shows_by_genre.sql](./16-shows_by_genre.sql): MySQL script that lists all shows, and all genres
+  linked to that show, from the database `hbtn_0d_tvshows`, in order of ascending show title and genre name.
