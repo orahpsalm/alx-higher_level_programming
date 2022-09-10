@@ -8,7 +8,8 @@ from sqlalchemy.orm import Session
 
 
 if __name__ == "__main__":
-    url = f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}@localhost/{sys.argv[3]}'
+    url = f'mysql+mysqldb://{sys.argv[1]}:{sys.argv[2]}\
+            @localhost/{sys.argv[3]}'
     engine = create_engine(url, pool_pre_ping=True)
 
     session = Session(engine)
