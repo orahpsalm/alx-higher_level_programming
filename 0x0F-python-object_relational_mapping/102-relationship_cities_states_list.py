@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Adds two tables"""
+"""Lists all cities"""
 
 from relationship_state import Base, State
 from relationship_city import City
@@ -14,8 +14,6 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    new_state = State(name='California')
-    new_state.cities.append(City(name='San Francisco'))
-    session.add(new_state)
-    session.commit()
+    for city in session.query(City).order_by(City.id.asc()).all():
+        print('{}: {} -> {}'.format(city.id, city.name, city.state.name))
     session.close()
