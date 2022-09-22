@@ -1,65 +1,62 @@
-# 0x10. Python - Network #0
-Unlike what's written in the name of the project, this project is actually Bash scripting while `Python - Network #1` is in Python.
+# Python - Network #0
 
-## [0-body_size.sh](./0-body_size.sh)
-Write a Bash script that takes in a URL, sends a request to that URL, and displays the size of the body of the response
-- The size must be displayed in bytes
-- You have to use `curl`
+In this networking project, I used `curl` in Bash scripts to send various types
+of HTTP headers. In the process, I learned about how URL's work, domain names,
+the many different HTTP request/repsonse header fields and status codes, and
+how to utilize cookies.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+Task six was an algorithm challenge separate from the overall project theme
+completed in Python.
 
-## [1-body.sh](./1-body.sh)
-Write a Bash script that takes in a URL, sends a `GET` request to the URL, and displays the body of the response
-- Display only body of a `200` status code response
-- You have to use `curl`
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+## Tasks :page_with_curl:
 
-## [2-delete.sh](./2-delete.sh)
-Write a Bash script that sends a `DELETE` request to the URL passed as the first argument and displays the body of the response
-- You have to use `curl`
+NOTE: The `curl` behavior in all Bash scripts were written to interact with a
+server set up on a container.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **0. cURL body size**
+  [0-body_size.sh](./0-body_size.sh): Bash script that sends a `GET` request to
+  a given URL and displays the size of the response body in bytes.
 
-## [3-methods.sh](./3-methods.sh)
-Write a Bash script that takes in a URL and displays all HTTP methods the server will accept.
-- You have to use `curl`
+* **1. cURL to the end**
+  * [1-body.sh](./1-body.sh): Bash script that sends a `GET` request to a given
+  URL and displays the response body for a `200` status code response.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **2. cURL Method**
+  * [2-delete.sh](./2-delete.sh): Bash script that sends a `DELETE` request to
+  a given URL and displays the response body.
 
-## [4-header.sh](./4-header.sh)
-Write a Bash script that takes in a URL as an argument, sends a `GET` request to the URL, and displays the body of the response
-- A header variable `X-HolbertonSchool-User-Id` must be sent with the value `98`
-- You have to use `curl`
+* **3. cURL only methods**
+  * [3-methods.sh](./3-methods.sh): Bash script that displays all HTTP methods
+  the server of a given URL will accept.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **4. cURL headers**
+  * [4-header.sh](./4-header.sh): Bash script that sends a `GET` request to a
+  given URL with a header variable `X-HolbertonSchool-User-Id=98` and displays
+  the response body.
 
-## [5-post_params.sh](./5-post_params.sh)
-Write a Bash script that takes in a URL, sends a `POST` request to the passed URL, and displays the body of the response
-- A variable `email` must be sent with the value `test@gmail.com`
-- A variable `subject` must be sent with the value `I will always be here for PLD`
-- You have to use `curl`
+* **5. cURL POST parameters**
+  * [5-post_params.sh](./5-post_params.sh): Bash script that sends a `POST`
+  request to a given URL with the variables `email=test.gmail.com` and
+  `subject=I will always be here for PLD` and displays the response body.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **6. Find a peak**
+  * [6-peak.py](./6-peak.py): [Technical interview preparation] - Python
+  program that finds a peak in a list of unsorted integers.
+  * [6-peak.txt](./6-peak.txt): Text file containing the complexity of the
+  algorithm.
 
-## [100-status_code.sh](./100-status_code.sh)
-Write a Bash script that sends a request to a URL passed as an argument, and displays only the status code of the response.
-- You are not allowed to use any pipe, redirection, etc.
-- You are not allowed to use `;` and `&&`
-- You have to use `curl`
+* **7. Only status code**
+  * [100-status_code.sh](./100-status_code.sh): Bash script that sends a `GET`
+  request to a given URL without using pipes, redirections, `;`, or `&&` and
+  displays the status code of the response.
 
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **8. cURL a JSON file**
+  * [101-post_json.sh](./101-post_json.sh): Bash script that sends a JSON `POST`
+  request with the contents of a provided file to a given URL, and displays the
+  response body.
 
-## [101-post_json.sh](./101-post_json.sh)
-Write a Bash script that sends a JSON `POST` request to a URL passed as the first argument, and displays the body of the response.
-- Your script must send a `POST` request with the contents of a file, passed with the filename as the second argument of the script, in the body of the request
-- You have to use `curl`
-
-Please test your scripts in the sandbox provided, using the web server running on port 5000
-
-## [102-catch_me.sh](./102-catch_me.sh)
-Write a Bash script that makes a request to `0.0.0.0:5000/catch_me` that causes the server to respond with a message containing `You got me!`, in the body of the response.
-- You have to use `curl`
-- You are not allow to use `echo`, `cat`, etc. to display the final result
-
-Please test your script in the sandbox provided, using the web server running on port 5000
+* **9. Catch me if you can!**
+  * [102-catch_me.sh](./102-catch_me.sh): Bash script that sends a request to
+  `0.0.0.0:5000/catch_me` that causes the server to respond with a message
+  containing `You got me!` in the repsonse body.
