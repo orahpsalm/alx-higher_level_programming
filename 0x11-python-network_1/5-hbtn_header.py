@@ -4,8 +4,6 @@ import requests
 import sys
 
 
-
-
 if __name__ == "__main__":
     session = requests.Session()
     response = session.get(sys.argv[1])
