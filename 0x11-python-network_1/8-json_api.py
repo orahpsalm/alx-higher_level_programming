@@ -5,7 +5,6 @@ import requests
 import sys
 
 
-
 if __name__ == "__main__":
     try:
         data = {'q': sys.argv[1]}
