@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""Fetch from site with requests"""
+
+"""Script that fetches https://intranet.hbtn.io/status."""
+
 import requests
 
 
 if __name__ == "__main__":
-    session = requests.Session()
-    response = session.get('https://intranet.hbtn.io/status').text
-    print('Body response:')
-    print('\t- type: {}'.format(type(response)))
-    print('\t- content: {}'.format(response))
+    r = requests.get("https://intranet.hbtn.io/status")
+    print("Body response:")
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
