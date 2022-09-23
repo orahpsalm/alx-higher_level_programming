@@ -4,7 +4,6 @@ import requests
 import sys
 
 
-
 if __name__ == "__main__":
     session = requests.Session()
     data = {'email': sys.argv[2]}
