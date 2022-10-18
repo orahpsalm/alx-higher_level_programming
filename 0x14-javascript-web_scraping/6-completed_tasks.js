@@ -1,15 +1,26 @@
 #!/usr/bin/node
-const axios = require('axios').default;
-const dict = {};
-axios.get(process.argv[2])
-  .then(function (response) {
-    response.data.forEach(function (task) {
-      if (task.completed) {
-        if (dict[task.userId] === undefined) {
-          dict[task.userId] = 0;
+
+const request = require('request');
+const url = process.argv[2];
+
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const completed = {};
+    const tasks = JSON.parse(body);
+    for (const i in tasks) {
+      const task = tasks[i];
+      if (task.completed === true) {
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
+        } else {
+          completed[task.userId]++;
         }
-        dict[task.userId] += 1;
       }
-    });
-    console.log(dict);
-  });
+    }
+    console.log(completed);
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
+  }
+});
